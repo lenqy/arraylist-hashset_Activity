@@ -7,12 +7,14 @@ public class Arraylist{
     Scanner input = new Scanner(System.in);
     List<Integer> integers = new ArrayList<Integer>();
     while(true){
-         System.out.println("==================ArrayList adding, removing, displaying and clearing Menu===========");
+        System.out.println("");
+         System.out.println("==================ARRAYLISTS===========");
          System.out.println("\nCHOOSE ANY FROM THE FOLLOWING:");
          System.out.println("1. Add");
          System.out.println("2. Remove");
          System.out.println("3. Display");
-         System.out.println("4. Exit");
+         System.out.println("4. Clear");
+         System.out.println("5. Exit");
          System.out.println();
          System.out.println("Your choice");
         
@@ -20,10 +22,24 @@ public class Arraylist{
 
          if(choice==1){ 
             // Adding
+            int numEntered;
             System.out.println("Enter an integer: ");
-            integers.add(input.nextInt());
-            System.out.println("Added" + integers);
-         }
+            numEntered = input.nextInt();
+            if (numEntered >= 0){
+                integers.add(numEntered);
+                System.out.println("Added");
+                System.out.print("DO YOU WANT TO CONTINUE? y/n");
+                System.out.println();
+                String answer = input.next();
+                // condition to satisfy in order to loop again
+                if (answer.equals("y") || answer.equals("Y")) {
+                    continue;
+                } 
+                else {
+                    break;
+            }
+            }
+    }
          else if(choice==2){
             // Removing
 
@@ -38,13 +54,21 @@ public class Arraylist{
          }
          else if(choice==3){
             System.out.println("Your List: " + integers);
+        } 
+
+        else if (choice==4) {
+            System.out.println("");
+            System.out.println("Cleared");
+            integers.clear();
         }
-        else if(choice==4){
+        else if(choice==5){
             System.out.println("Thank you for using ArrayList");
             break;
+        } else{
+            System.out.println("Invalid input try again");
         }
-    }
-    input.close();
-}
 
+}
+input.close();
+}
 }
