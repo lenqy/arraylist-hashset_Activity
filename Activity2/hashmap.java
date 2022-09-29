@@ -36,6 +36,10 @@ public class hashmap{
                     System.out.println("Succesfully added!");
                 }
             } else if (choice==2) {
+                System.out.print("Remove a number: ");
+                int input = scan.nextInt();
+                numbers.entrySet().removeIf(entry -> entry.getKey().equals(input));
+                System.out.println("Succesfully deleted!");
 
              
             } else if (choice==3) {
